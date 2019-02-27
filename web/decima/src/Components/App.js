@@ -1,28 +1,41 @@
+import { LinkContainer } from 'react-router-bootstrap';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+
 import logo from '../images/ibri.ico';
+import Routes from './Routes';
 import '../css/App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="" alt="logo" />
-          <p>
-            DECIMA PROJECT TESTING
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-          </a>
-        </header>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="App container">
+				<Navbar fluid collapseOnSelect>
+					<Navbar.Header>
+						<Navbar.Brand>
+							<Link to="/">
+								Decima Application
+								<img src={logo} className="" alt="logo" />
+							</Link>
+						</Navbar.Brand>
+						<Navbar.Toggle />
+					</Navbar.Header>
+					<Navbar.Collapse>
+						<Nav pullRight>
+							<LinkContainer to="/signup">
+								<NavItem>Signup</NavItem>
+							</LinkContainer>
+							<LinkContainer to="/login">
+								<NavItem>Login</NavItem>
+							</LinkContainer>
+						</Nav>
+					</Navbar.Collapse>
+				</Navbar>
+				<Routes />
+			</div>
+		);
+	}
 }
 
 export default App;
